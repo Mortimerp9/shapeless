@@ -53,7 +53,6 @@ object OrderingExamples extends App {
   }
 
   case class Foo(i : Int, s : String)
-  implicit def fooIso = Iso.hlist(Foo.apply _, Foo.unapply _)
 
   implicitly[Ordering[Foo]]
   val fs = List(

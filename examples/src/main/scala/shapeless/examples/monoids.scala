@@ -24,10 +24,12 @@ object MonoidExamples extends App {
   // A pair of arbitrary case classes
   case class Foo(i : Int, s : String)
   case class Bar(b : Boolean, s : String, d : Double)
+  
+  import Iso._
 
   // Publish their `HListIso`'s
-  implicit def fooIso = Iso.hlist(Foo.apply _, Foo.unapply _)
-  implicit def barIso = Iso.hlist(Bar.apply _, Bar.unapply _)
+//  implicit def fooIso = Iso.hlist[Foo]
+//  implicit def barIso = Iso.hlist[Bar]
 
   // And now they're monoids ...
   implicitly[Monoid[Foo]]
